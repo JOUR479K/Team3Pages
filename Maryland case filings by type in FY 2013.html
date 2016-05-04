@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Maryland Filings</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+<div id="container" style="min-width: 310px; max-width:600px; height: 600px; margin: 0 auto"></div>
+
+<script>$(function () {
+
+    $(document).ready(function () {
+
+        // Build the chart
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Maryland case filings by type in FY 2013'
+            },
+            subtitle: {
+            text: 'Data retrieved from <a href="http://msa.maryland.gov/megafile/msa/speccol/sc5300/sc5339/000113/019000/019833/unrestricted/20140928e.pdf"> Maryland Judiciary Annual Statistical Abstract</a>'
+        },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Case type',
+                colorByPoint: true,
+                data: [{
+                    name: 'Civil-General (74,407)',
+                    y: 26.18
+                }, {
+                    name: 'Civil-Family (98,223)',
+                    y: 34.56,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'Juvenile (27,895)',
+                    y: 9.81
+                }, {
+                    name: 'Criminal (83,721)',
+                    y: 29.45
+                },]
+            }]
+        });
+    });
+});
+    
+</script>
+
+
+</body>
+</html>
