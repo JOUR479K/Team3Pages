@@ -1,0 +1,378 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Maryland Filings</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+<div id="container" style="min-width: 310px; max-width:600px; height: 600px; margin: 0 auto"></div>
+
+
+<script>$(function () {
+    // Create the chart
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Cases filed in Maryland'
+        },
+        subtitle: {
+            text: 'Data retrieved from <a href="http://msa.maryland.gov/megafile/msa/speccol/sc5300/sc5339/000113/019000/019833/unrestricted/20140928e.pdf"> Maryland Judiciary Annual Statisitcal Abstract</a>.'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Total filings'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
+        },
+
+        series: [{
+            name: 'Year',
+            colorByPoint: true,
+            data: [{
+                name: 'FY 2011',
+                y: 284818,
+                drilldown: 'FY 2011'
+            }, {
+                name: 'FY 2012',
+                y: 283869,
+                drilldown: 'FY 2012'
+            }, {
+                name: 'FY 2013',
+                y: 284246,
+                drilldown: 'FY 2013'
+            },]
+        }],
+        drilldown: {
+            series: [{
+                name: 'Microsoft Internet Explorer',
+                id: 'Microsoft Internet Explorer',
+                data: [
+                    [
+                        'v11.0',
+                        24.13
+                    ],
+                    [
+                        'v8.0',
+                        17.2
+                    ],
+                    [
+                        'v9.0',
+                        8.11
+                    ],
+                    [
+                        'v10.0',
+                        5.33
+                    ],
+                    [
+                        'v6.0',
+                        1.06
+                    ],
+                    [
+                        'v7.0',
+                        0.5
+                    ]
+                ]
+            }, {
+                name: 'Chrome',
+                id: 'Chrome',
+                data: [
+                    [
+                        'v40.0',
+                        5
+                    ],
+                    [
+                        'v41.0',
+                        4.32
+                    ],
+                    [
+                        'v42.0',
+                        3.68
+                    ],
+                    [
+                        'v39.0',
+                        2.96
+                    ],
+                    [
+                        'v36.0',
+                        2.53
+                    ],
+                    [
+                        'v43.0',
+                        1.45
+                    ],
+                    [
+                        'v31.0',
+                        1.24
+                    ],
+                    [
+                        'v35.0',
+                        0.85
+                    ],
+                    [
+                        'v38.0',
+                        0.6
+                    ],
+                    [
+                        'v32.0',
+                        0.55
+                    ],
+                    [
+                        'v37.0',
+                        0.38
+                    ],
+                    [
+                        'v33.0',
+                        0.19
+                    ],
+                    [
+                        'v34.0',
+                        0.14
+                    ],
+                    [
+                        'v30.0',
+                        0.14
+                    ]
+                ]
+            }, {
+                name: 'Firefox',
+                id: 'Firefox',
+                data: [
+                    [
+                        'v35',
+                        2.76
+                    ],
+                    [
+                        'v36',
+                        2.32
+                    ],
+                    [
+                        'v37',
+                        2.31
+                    ],
+                    [
+                        'v34',
+                        1.27
+                    ],
+                    [
+                        'v38',
+                        1.02
+                    ],
+                    [
+                        'v31',
+                        0.33
+                    ],
+                    [
+                        'v33',
+                        0.22
+                    ],
+                    [
+                        'v32',
+                        0.15
+                    ]
+                ]
+            }, {
+                name: 'Safari',
+                id: 'Safari',
+                data: [
+                    [
+                        'v8.0',
+                        2.56
+                    ],
+                    [
+                        'v7.1',
+                        0.77
+                    ],
+                    [
+                        'v5.1',
+                        0.42
+                    ],
+                    [
+                        'v5.0',
+                        0.3
+                    ],
+                    [
+                        'v6.1',
+                        0.29
+                    ],
+                    [
+                        'v7.0',
+                        0.26
+                    ],
+                    [
+                        'v6.2',
+                        0.17
+                    ]
+                ]
+            }, {
+                name: 'Opera',
+                id: 'Opera',
+                data: [
+                    [
+                        'v12.x',
+                        0.34
+                    ],
+                    [
+                        'v28',
+                        0.24
+                    ],
+                    [
+                        'v27',
+                        0.17
+                    ],
+                    [
+                        'v29',
+                        0.16
+                    ]
+                ]
+            }]
+        }
+    });
+});
+
+
+$(function () {
+
+    $(document).ready(function () {
+
+        // Build the chart
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Maryland case filing by circuit (FY 2013)'
+            },
+            subtitle: {
+            text: 'Data retrieved via <a href="http://msa.maryland.gov/megafile/msa/speccol/sc5300/sc5339/000113/019000/019833/unrestricted/20140928e.pdf">Maryland Judiciary Annual Statistical Abstract</a>.'
+        },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Percent',
+                colorByPoint: true,
+                data: [{
+                    name: 'First Circuit (15,747)',
+                    y: 5.54
+                }, {
+                    name: 'Second Circuit (15,954)',
+                    y: 5.61,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'Third Circuit (44,963)',
+                    y: 15.82
+                }, {
+                    name: 'Fourth Circuit (15,145)',
+                    y: 5.33
+                }, {
+                    name: 'Fifth Circuit (38,742)',
+                    y: 10.08
+                }, {
+                    name: 'Sixth Circuit (46,356)',
+                    y: 16.31
+                }, {
+                    name: 'Seventh Circuit (56,424)',
+                    y: 19.85
+                }, {
+                    name: 'Eighth Circuit (50,915)',
+                    y: 17.91
+                }]
+            }]
+        });
+    });
+});
+
+$(function () {
+
+    $(document).ready(function () {
+
+        // Build the chart
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Maryland case filings by type in FY 2013'
+            },
+            subtitle: {
+            text: 'Data retrieved from <a href="http://msa.maryland.gov/megafile/msa/speccol/sc5300/sc5339/000113/019000/019833/unrestricted/20140928e.pdf"> Maryland Judiciary Annual Statistical Abstract</a>'
+        },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Case type',
+                colorByPoint: true,
+                data: [{
+                    name: 'Civil-General (74,407)',
+                    y: 26.18
+                }, {
+                    name: 'Civil-Family (98,223)',
+                    y: 34.56,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'Juvenile (27,895)',
+                    y: 9.81
+                }, {
+                    name: 'Criminal (83,721)',
+                    y: 29.45
+                },]
+            }]
+        });
+    });
+});
+</script>
+<iframe width="500" height="300" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col0+from+1ik955hN6VWJ-JtxMsGgEnCoJpc-U3xbusuW0GmwG&amp;viz=MAP&amp;h=false&amp;lat=39.043116492944065&amp;lng=-77.53993261718749&amp;t=1&amp;z=7&amp;l=col0&amp;y=2&amp;tmplt=2&amp;hml=ONE_COL_LAT_LNG"></iframe>
