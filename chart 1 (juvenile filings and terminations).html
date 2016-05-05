@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Maryland Filings</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+	
+<div id="container" style="min-width: 310px; max-width:600px; height: 600px; margin: 0 auto"></div>
+<script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Juvenile Filings and Terminations'
+        },
+        subtitle: {
+            text: 'Source: Maryland Judiciary Annual Statistical Abstract'
+        },
+        xAxis: {
+            categories: ['FY 2011', 'FY 2012', 'FY 2013']
+        },
+        yAxis: {
+            title: {
+                text: 'State Total'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        series: [{
+            name: 'Filings',
+            data: [30635, 31064, 27895]
+        }, {
+            name: 'Terminations',
+            data: [31253, 29633, 27949]
+        }]
+    });
+});
+</script>
+</html>
