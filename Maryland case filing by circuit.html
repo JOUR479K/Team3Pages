@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Maryland Filings</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+<div id="container" style="min-width: 310px; max-width:600px; height: 600px; margin: 0 auto"></div>
+
+
+<script>$(function () {
+    $(document).ready(function () {
+        // Build the chart
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Maryland case filing by circuit (FY 2013)'
+            },
+            subtitle: {
+            text: 'Data retrieved via <a href="http://msa.maryland.gov/megafile/msa/speccol/sc5300/sc5339/000113/019000/019833/unrestricted/20140928e.pdf">Maryland Judiciary Annual Statistical Abstract</a>.'
+        },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Percent',
+                colorByPoint: true,
+                data: [{
+                    name: 'First Circuit (15,747)',
+                    y: 5.54
+                }, {
+                    name: 'Second Circuit (15,954)',
+                    y: 5.61,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'Third Circuit (44,963)',
+                    y: 15.82
+                }, {
+                    name: 'Fourth Circuit (15,145)',
+                    y: 5.33
+                }, {
+                    name: 'Fifth Circuit (38,742)',
+                    y: 10.08
+                }, {
+                    name: 'Sixth Circuit (46,356)',
+                    y: 16.31
+                }, {
+                    name: 'Seventh Circuit (56,424)',
+                    y: 19.85
+                }, {
+                    name: 'Eighth Circuit (50,915)',
+                    y: 17.91
+                }]
+            }]
+        });
+    });
+});
+   
+</script>
+
+        
+</body>
+</html>
